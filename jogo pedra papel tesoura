@@ -1,0 +1,61 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int quantidadeDeJogadas = 0;
+        while ( quantidadeDeJogadas < 2) {
+            System.out.println("digite se voce quer pedra, papel ou tesoura\n");
+            System.out.println("1 para pedra");
+            System.out.println("2 para papel");
+            System.out.println("3 para tesoura");
+            int escolha = Leitor.receberInteiro();
+            if (1 == escolha) {
+                System.out.println("voce escolheu pedra");
+
+            } else if (escolha == 2) {
+                System.out.println("voce escolheu papel");
+            } else if (escolha == 3) {
+                System.out.println("voce escolheu tesoura");
+            } else {
+                System.out.println("por favor, digite um numero valido");
+            }
+            Random rng = new Random(System.currentTimeMillis());
+            int escolhaPC = rng.nextInt(2) + 1;
+            if (1 == escolhaPC) {
+                System.out.println("o pc escolheu pedra");
+
+            } else if (escolhaPC == 2) {
+                System.out.println("o pc escolheu papel");
+            } else if (escolhaPC == 3) {
+                System.out.println("o pc escolheu tesoura");
+            } else {
+                System.out.println("por favor, digite um numero valido");
+            }
+            if (escolha == escolhaPC) {
+                System.out.println("empate!");
+            } else if (escolha == 1 && escolhaPC == 2 || escolha == 2 && escolhaPC == 3 || escolha == 3 && escolhaPC == 1) {
+                System.out.println("voce perdeu para o pc");
+            } else {
+                System.out.println("parabens, voce ganhou!!!!!!!!!! ");
+            }
+            quantidadeDeJogadas = quantidadeDeJogadas + 1;
+
+        }
+
+    }
+}
+
+import java.util.Scanner;
+
+public class Leitor {
+    private static Scanner descobrir=  new Scanner(System.in);
+    public static int receberInteiro(){
+        int numero= descobrir.nextInt();
+        descobrir.nextLine();
+        return numero;
+
+
+    }
+}
